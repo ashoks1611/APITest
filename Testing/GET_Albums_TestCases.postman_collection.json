@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "f873c8ed-43ef-4812-8e25-ba16e2426b3d",
+		"name": "GET_Albums_TestCases",
+		"description": "pm.test(\"TestCase to check whether the Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\npm.test(\"TestCase to check whether the body contains the Correct UserID\", function () {\n    pm.expect(pm.response.text()).to.include(data.UserID);\n});\npm.test(\"TestCase to check whether the body contains the Correct ID\", function () {\n    pm.expect(pm.response.text()).to.include(data.ID);\n});\npm.test(\"TestCase to check whether the body contains the Correct Title\", function () {\n    pm.expect(pm.response.text()).to.include(data.Title);\n});\npm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {\n    pm.expect(pm.response.responseTime).to.be.below(1000);\n});",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_Albums Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d61683fa-711f-47a8-91be-bd3fd759f032",
+						"exec": [
+							"pm.test(\"TestCase to check whether the Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"TestCase to check whether the body contains the Correct UserID\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.UserID);",
+							"});",
+							"pm.test(\"TestCase to check whether the body contains the Correct ID\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.ID);",
+							"});",
+							"pm.test(\"TestCase to check whether the body contains the Correct Title\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.Title);",
+							"});",
+							"pm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "179eab69-6ffe-493b-a8f4-8def0bc89f3f",
+						"exec": [
+							"console.log(\"ID:\" +data.ID);",
+							"console.log(\"ID:\" +data.UserID);",
+							"console.log(\"ID:\" +data.Title);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/albums?id={{ID}}",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"albums"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

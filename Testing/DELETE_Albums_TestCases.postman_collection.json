@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "8329bde4-21e2-44f7-91e0-cb637aae5389",
+		"name": "DELETE_Albums_TestCases",
+		"description": "pm.test(\"TestCase to check whether the Status code is 404\", function () {\n    pm.response.to.have.status(404);\n});\npm.test(\"TestCase to check that the body returns no value as it is already deleted\", function () {\n    pm.expect(pm.response.text()).to.include(\"\");\n});\npm.test(\"Performance Testing - Response time should be less than 500ms\", function () {\n    pm.expect(pm.response.responseTime).to.be.below(500);\n});",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "delete_Albums Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2eb7fe71-dd19-4771-9544-98603c4e49b7",
+						"exec": [
+							"pm.test(\"TestCase to check whether the Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"pm.test(\"TestCase to check that the body returns no value as it is already deleted\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"\");",
+							"});",
+							"pm.test(\"Performance Testing - Response time should be less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4df8d449-80fc-4d1e-bf8b-32487d190bcb",
+						"exec": [
+							"console.log(\"ID:\" +data.ID);",
+							"",
+							"console.log(\"ID:\" +data.USERID);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/albums/?id={{ID}}&userId={{USERID}}",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"albums",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{ID}}"
+						},
+						{
+							"key": "userId",
+							"value": "{{USERID}}"
+						}
+					]
+				},
+				"description": "fetch('https://jsonplaceholder.typicode.com/posts/1', {\r\n  method: 'DELETE'\r\n})"
+			},
+			"response": []
+		}
+	]
+}

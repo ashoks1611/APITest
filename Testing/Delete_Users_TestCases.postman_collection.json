@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "63a00269-e723-4674-aa6b-30d4fbd4480f",
+		"name": "Delete_Users_TestCases",
+		"description": "pm.test(\"TestCase to check whether the Status code is 404\", function () {\n    pm.response.to.have.status(404);\n});\npm.test(\"TestCase to check that the body returns no value as it is already deleted\", function () {\n    pm.expect(pm.response.text()).to.include(\"\");\n});\npm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {\n    pm.expect(pm.response.responseTime).to.be.below(1000);\n});",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "delete_Users_TestCases Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6ed10d27-feff-4def-9719-97c456155478",
+						"exec": [
+							"pm.test(\"TestCase to check whether the Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"pm.test(\"TestCase to check that the body returns no value as it is already deleted\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"\");",
+							"});",
+							"pm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "45cfeb17-e57b-4bec-af3c-69f3b3359f6e",
+						"exec": [
+							"console.log(\"ID:\" +data.ID);",
+							"",
+							"console.log(\"ID:\" +data.Name);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users/?id={{ID}}&name={{Name}}",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{ID}}"
+						},
+						{
+							"key": "name",
+							"value": "{{Name}}"
+						}
+					]
+				},
+				"description": "fetch('https://jsonplaceholder.typicode.com/posts/1', {\r\n  method: 'DELETE'\r\n})"
+			},
+			"response": []
+		}
+	]
+}

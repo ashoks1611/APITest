@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "1222782b-0957-46c3-93d5-98110b55fd84",
+		"name": "GET_Users_TestCases",
+		"description": "pm.test(\"TestCase to check whether the Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\npm.test(\"TestCase to check whether the body contains the correct ID\", function () {\n    pm.expect(pm.response.text()).to.include(data.ID);\n});\npm.test(\"TestCase to check whether the body contains the correct name\", function () {\n    pm.expect(pm.response.text()).to.include(data.Name);\n});\npm.test(\"TestCase to check whether the body contains the correct Username\", function () {\n    pm.expect(pm.response.text()).to.include(data.UserName);\n});\npm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {\n    pm.expect(pm.response.responseTime).to.be.below(1000);\n});",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_Users Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d61683fa-711f-47a8-91be-bd3fd759f032",
+						"exec": [
+							"pm.test(\"TestCase to check whether the Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"TestCase to check whether the body contains the correct ID\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.ID);",
+							"});",
+							"pm.test(\"TestCase to check whether the body contains the correct name\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.Name);",
+							"});",
+							"pm.test(\"TestCase to check whether the body contains the correct Username\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.UserName);",
+							"});",
+							"pm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bb78215d-d5fe-4ca0-b66a-dfe7add8c424",
+						"exec": [
+							"console.log(\"ID:\" +data.ID);",
+							"console.log(\"ID:\" +data.Name);",
+							"console.log(\"ID:\" +data.UserName);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users?id={{ID}}",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{ID}}"
+						}
+					]
+				},
+				"description": "https://jsonplaceholder.typicode.com/users"
+			},
+			"response": []
+		}
+	]
+}

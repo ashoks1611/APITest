@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "01d5bcbb-24fb-4e30-ba4a-ac176b64a636",
+		"name": "POST_Users_TestCases",
+		"description": "pm.test(\"TestCase to check whether the Status code is 201\", function () {\n    pm.response.to.have.status(201);\n});\n\npm.test(\"TestCase to check whether the body contains the correct ID\", function () {\n    pm.expect(pm.response.text()).to.include(data.ID);\n});  \n\npm.test(\"TestCase to check whether the body contains the correct Name\", function () {\n    pm.expect(pm.response.text()).to.include(data.Name);\n});  \n\npm.test(\"TestCase to check whether the body contains the correct UserName\", function () {\n    pm.expect(pm.response.text()).to.include(data.UserName);\n});  \n\npm.test(\"TestCase to check whether the body contains the correct Email ID\", function () {\n    pm.expect(pm.response.text()).to.include(data.Email);\n});  \n\npm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {\n    pm.expect(pm.response.responseTime).to.be.below(1000);\n});",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post_Users Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c268ff3e-0aba-4537-8e05-51f20bd6d23b",
+						"exec": [
+							"pm.test(\"TestCase to check whether the Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"TestCase to check whether the body contains the correct ID\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.ID);",
+							"});  ",
+							"",
+							"pm.test(\"TestCase to check whether the body contains the correct Name\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.Name);",
+							"});  ",
+							"",
+							"pm.test(\"TestCase to check whether the body contains the correct UserName\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.UserName);",
+							"});  ",
+							"",
+							"pm.test(\"TestCase to check whether the body contains the correct Email ID\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.Email);",
+							"});  ",
+							"",
+							"pm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ba9197cf-9229-4e4a-9e0f-49b5aa539e18",
+						"exec": [
+							"console.log(\"ID:\" +data.ID);",
+							"console.log(\"ID:\" +data.Name);",
+							"console.log(\"ID:\" +data.UserName);",
+							"console.log(\"ID:\" +data.Email);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"id\": \"{{ID}}\",\n    \"name\": \"{{Name}}\",\n    \"username\": \"{{UserName}}\",\n    \"email\": \"{{Email}}\",\n    \"address\": {\n      \"street\": \"Kulas Light\",\n      \"suite\": \"Apt. 556\",\n      \"city\": \"Gwenborough\",\n      \"zipcode\": \"92998-3874\",\n      \"geo\": {\n        \"lat\": \"-37.3159\",\n        \"lng\": \"81.1496\"\n      }\n    },\n    \"phone\": \"1-770-736-8031 x56442\",\n    \"website\": \"hildegard.org\",\n    \"company\": {\n      \"name\": \"Romaguera-Crona\",\n      \"catchPhrase\": \"Multi-layered client-server neural-net\",\n      \"bs\": \"harness real-time e-markets\"\n    }\n  }\n]"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/albums",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"albums"
+					]
+				},
+				"description": "fetch('https://jsonplaceholder.typicode.com/posts', {\r\n    method: 'POST',\r\n    body: JSON.stringify({\r\n      title: 'foo',\r\n      body: 'bar',\r\n      userId: 1\r\n    }),\r\n    headers: {\r\n      \"Content-type\": \"application/json; charset=UTF-8\"\r\n    }\r\n  })\r\n  .then(response => response.json())\r\n  .then(json => console.log(json))"
+			},
+			"response": []
+		}
+	]
+}

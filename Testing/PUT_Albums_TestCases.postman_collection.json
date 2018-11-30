@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "83ae622b-96c2-4b0f-89ad-0b6c64995556",
+		"name": "PUT_Albums_TestCases",
+		"description": "pm.test(\"TestCase to check whether the Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\npm.test(\"TestCase to check whether the response body contains the Correct UserID\", function () {\n    pm.expect(pm.response.text()).to.include(data.userId);\n});\npm.test(\"TestCase to check whether the response body contains the Correct ID\", function () {\n    pm.expect(pm.response.text()).to.include(data.id);\n});\npm.test(\"TestCase to check whether the response body contains the Correct Title\", function () {\n    pm.expect(pm.response.text()).to.include(data.title);\n});\npm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {\n    pm.expect(pm.response.responseTime).to.be.below(1000);\n});",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "put_Albums Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3a4a8ae9-1cf7-4509-9d0f-873e04bceee5",
+						"exec": [
+							"console.log(\"ID:\" +data.userId);",
+							"console.log(\"ID:\" +data.id);",
+							"console.log(\"ID:\" +data.title);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9bdf26d6-6f28-4d87-a81d-c59bafdbb3b8",
+						"exec": [
+							"pm.test(\"TestCase to check whether the Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"TestCase to check whether the response body contains the Correct UserID\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.userId);",
+							"});",
+							"pm.test(\"TestCase to check whether the response body contains the Correct ID\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.id);",
+							"});",
+							"pm.test(\"TestCase to check whether the response body contains the Correct Title\", function () {",
+							"    pm.expect(pm.response.text()).to.include(data.title);",
+							"});",
+							"pm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"userId\": \"{{userId}}\",\n        \"id\": \"{{id}}\",\n        \"title\": \"{{title}}\"\n    }\n]"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/albums/{{id}}",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"albums",
+						"{{id}}"
+					]
+				},
+				"description": "fetch('https://jsonplaceholder.typicode.com/posts/1', {\r\n    method: 'PUT',\r\n    body: JSON.stringify({\r\n      id: 1,\r\n      title: 'foo',\r\n      body: 'bar',\r\n      userId: 1\r\n    }),\r\n    headers: {\r\n      \"Content-type\": \"application/json; charset=UTF-8\"\r\n    }\r\n  })\r\n  .then(response => response.json())\r\n  .then(json => console.log(json))"
+			},
+			"response": []
+		}
+	]
+}
