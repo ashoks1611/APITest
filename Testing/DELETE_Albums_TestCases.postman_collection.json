@@ -20,8 +20,8 @@
 							"pm.test(\"TestCase to check that the body returns no value as it is already deleted\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"\");",
 							"});",
-							"pm.test(\"Performance Testing - Response time should be less than 500ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"pm.test(\"Performance Testing - Response time should be less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
 							"});"
 						],
 						"type": "text/javascript"
